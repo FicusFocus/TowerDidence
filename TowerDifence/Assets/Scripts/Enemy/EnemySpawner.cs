@@ -5,34 +5,27 @@ using UnityEngine.Events;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<Wave> _waves;
-    [SerializeField] private Transform _spawnPoint, _container;
-    [SerializeField] private Player _player;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Transform _container;
     [SerializeField] private float _delay;
 
     private Wave _currentWave;
-    private int _enemyesAmountInWave, _totalEnemyesAmount, _enemyDiedCount, _currentWaveNumber, _alreadySpawned;
-    private float _timeAfterlastSpawn, _delayBetweenNextWaves, _enemyAudioSourceStartValue;
-    private bool _canSetNewWawe, _waveFinished, _allWavesFinnished;
+    private int _enemyesAmountInWave;
+    private int _currentWaveNumber = 0;
+    private int _alreadySpawned;
+    private float _timeAfterlastSpawn = 0;
+    private float _delayBetweenNextWaves = 0;
+    private float _enemyAudioSourceStartValue = 1;
+    private bool _canSetNewWawe = false;
+    private bool _allWavesFinnished = false;
 
     public event UnityAction<Enemy> EnemySpawned;
     public event UnityAction AllWavesFinnished;
-
-    private void Awake()
-    {
-        _currentWaveNumber = 0;
-        _alreadySpawned = 0;
-        _timeAfterlastSpawn = 0;
-        _delayBetweenNextWaves = 0;
-        _enemyAudioSourceStartValue = 1;
-        _totalEnemyesAmount = 0;
-        _allWavesFinnished = false;
-    }
 
     private void Start()
     {
         SetWave(_currentWaveNumber);
         _canSetNewWawe = false;
-        _waveFinished = false;
     }
 
     private void Update()
@@ -44,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         {
             _delayBetweenNextWaves += Time.deltaTime;
 
-            if (_currentWaveNumber >= _waves.Count && _enemyDiedCount == _totalEnemyesAmount)
+            if (_currentWaveNumber >= _waves.Count)
             {
                 AllWavesFinnished?.Invoke();
                 _allWavesFinnished = true;
@@ -82,7 +75,6 @@ public class EnemySpawner : MonoBehaviour
         {
             _alreadySpawned = 0;
             _currentWave = null;
-            _waveFinished = true;
         }
     }
 
@@ -96,8 +88,6 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < _currentWave.EnemyType.Count; i++)
             _enemyesAmountInWave += _currentWave.EnemyType[i].Amount;
-
-        _totalEnemyesAmount += _enemyesAmountInWave;
     }
 
     private int GetRandomenemy()
@@ -109,20 +99,13 @@ public class EnemySpawner : MonoBehaviour
     {
         var newEnemy = Instantiate(tamplate, _spawnPoint.position, Quaternion.identity, _container);
         EnemySpawned?.Invoke(newEnemy);
-        newEnemy.Died += OnEnemyDied;
         newEnemy.SetAudioSourseVolumeValue(_enemyAudioSourceStartValue);
-        _alreadySpawned++;
-    }
-
-    private void OnEnemyDied(Enemy enemy)
-    {
-        _player.AddMoney(enemy.Revard);
-        _enemyDiedCount++;
-        enemy.Died -= OnEnemyDied;
+        _alreadySpawned+=1;
     }
 
     public void SetEnemyAudioSourceValue(float value)
     {
+        Debug.Log(value);
         _enemyAudioSourceStartValue = value;
     }
 }

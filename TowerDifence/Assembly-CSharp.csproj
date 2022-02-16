@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{407011E9-8456-5E25-BECF-E39A444070D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -64,15 +63,19 @@
     <Compile Include="Assets\Scripts\MiainMenu\Settings.cs" />
     <Compile Include="Assets\Scripts\Tower\TowersType\ArchersTower.cs" />
     <Compile Include="Assets\Scenes\Typed\LVL2.cs" />
+    <Compile Include="Assets\Scripts\UI\WinScreen.cs" />
+    <Compile Include="Assets\Scripts\SO\AudiolConfig.cs" />
     <Compile Include="Assets\Scenes\Typed\MainMenu.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Samples\Scripts\MultiHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyPathSetter.cs" />
     <Compile Include="Assets\Scripts\Tower\TowersType\ToxickTower.cs" />
     <Compile Include="Assets\Scripts\MiainMenu\MainMenuPanel.cs" />
+    <Compile Include="Assets\Scenes\Typed\SampleScene.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\ITypedAwakeHandler.cs" />
     <Compile Include="Assets\Scripts\MiainMenu\MainMenuAudiioController.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Tower\Ammo\Arrow.cs" />
+    <Compile Include="Assets\Scripts\UI\LoseScreen.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Samples\Scripts\IntHandler.cs" />
     <Compile Include="Assets\Scripts\UI\TowerView.cs" />
     <Compile Include="Assets\Scripts\Tower\BuildController.cs" />
@@ -84,7 +87,6 @@
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\AnalyzableScene.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\TypedSceneStorage.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\TypedScene.cs" />
-    <Compile Include="Assets\Scripts\UI\MoneyView.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\TypedSceneValidator.cs" />
     <Compile Include="Assets\Scripts\LevelList\Level1.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\LoadingProcessor.cs" />
@@ -98,14 +100,11 @@
     <Compile Include="Assets\ImportPaceges\TypedScenes\Samples\Scripts\ExampleSceneLoadModel.cs" />
     <Compile Include="Assets\Scripts\LevelList\Level1Entry.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\ISceneLoadHandler.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyHalthBar.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Core\SceneAnalyzer.cs" />
     <Compile Include="Assets\ImportPaceges\TypedScenes\Samples\Scripts\StringHandler.cs" />
     <Compile Include="Assets\Scripts\MiainMenu\MusicBar.cs" />
-    <Compile Include="Assets\Scenes\Typed\SampleScene.cs" />
-    <Compile Include="Assets\Scripts\SO\AudiolConfig.cs" />
-    <Compile Include="Assets\Scripts\WinScreen.cs" />
-    <Compile Include="Assets\Scripts\LoseScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\EndGameScreen.cs" />
+    <Compile Include="Assets\Scripts\MiainMenu\Bar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

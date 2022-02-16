@@ -6,9 +6,10 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] private Sprite _icon;
     [SerializeField] private string _name;
     [SerializeField] private int _price;
-    [SerializeField] protected float SearchArea;
-    [SerializeField] protected AudioSource AudioSource;
     [SerializeField] private string _description;
+
+    [SerializeField] protected AudioSource AudioSource;
+    [SerializeField] protected float SearchArea;
 
     private bool _isAttackRadiusVisable = false;
     protected float LostArea;

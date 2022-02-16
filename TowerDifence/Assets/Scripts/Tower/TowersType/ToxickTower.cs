@@ -69,7 +69,6 @@ public class ToxickTower : Tower
 
         foreach (var collider in hitList)
         {
-
             if (collider.TryGetComponent(out Enemy enemy))
                 targetList.Add(enemy);
         }
@@ -79,8 +78,8 @@ public class ToxickTower : Tower
 
     private void ClearPoisoningTargetsList()
     {
-        foreach (var item in _poisoningTargets)
-            item.SetNewColor(item.BaceColor);
+        foreach (var poisoningTarget in _poisoningTargets)
+            poisoningTarget.SetNewColor(poisoningTarget.BaceColor);
 
         _poisoningTargets.Clear();
     }

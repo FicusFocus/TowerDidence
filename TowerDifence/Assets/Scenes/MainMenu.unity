@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 940478097}
-  _audioConfigurations: {fileID: 11400000, guid: 7e466d63032c0344995bfd4f2a5ea064, type: 2}
+  AudioConfigurations: {fileID: 11400000, guid: 7e466d63032c0344995bfd4f2a5ea064, type: 2}
 --- !u!1 &155176143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1518565706}
-  _audioConfigurations: {fileID: 11400000, guid: 7e466d63032c0344995bfd4f2a5ea064, type: 2}
+  AudioConfigurations: {fileID: 11400000, guid: 7e466d63032c0344995bfd4f2a5ea064, type: 2}
 --- !u!1 &1104798147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,9 +2541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491acad075150c4458658b260fc4ac2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelConfig: {fileID: 11400000, guid: 7e466d63032c0344995bfd4f2a5ea064, type: 2}
-  _musicLevel: 0
-  _soundLevel: 0
 --- !u!4 &1848996315
 Transform:
   m_ObjectHideFlags: 0

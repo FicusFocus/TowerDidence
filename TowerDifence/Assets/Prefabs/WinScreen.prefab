@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7048296188231597285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -227,10 +227,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2905625, y: 0.1697778}
-  m_AnchorMax: {x: 0.70943755, y: 0.8195556}
-  m_AnchoredPosition: {x: 0, y: 6}
-  m_SizeDelta: {x: 2.2399902, y: 2.5499878}
+  m_AnchorMin: {x: 0.2905625, y: 0.16885187}
+  m_AnchorMax: {x: 0.7325625, y: 0.8195556}
+  m_AnchoredPosition: {x: -22.5, y: 6.5}
+  m_SizeDelta: {x: -42.76001, y: 1.5499878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6080144313731667225
 MonoBehaviour:
@@ -244,9 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365914c4b3975944d9eda2758d70731c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _winScreenPanel: {fileID: 8503890888349636100}
+  _endGamepanel: {fileID: 8503890888349636100}
+  _goToMainMenuButton: {fileID: 4504326369352850672}
   _restartButton: {fileID: 4412144824743232490}
-  _menuButton: {fileID: 4504326369352850672}
 --- !u!1 &7392610282129027250
 GameObject:
   m_ObjectHideFlags: 0

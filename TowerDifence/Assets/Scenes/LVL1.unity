@@ -2499,13 +2499,14 @@ MonoBehaviour:
       Tamplate: {fileID: 6708723818148045468, guid: 04a9b3bea3d580049a93fdcd4023a710, type: 3}
     Delay: 0.2
   - EnemyType:
-    - Amount: 5
+    - Amount: 10
       Tamplate: {fileID: 6708723818148045468, guid: 04a9b3bea3d580049a93fdcd4023a710, type: 3}
+    - Amount: 2
+      Tamplate: {fileID: 4308233536831302063, guid: 0ea02697397b2564ca515b9573941841, type: 3}
     Delay: 0.2
   _spawnPoint: {fileID: 2022383343}
   _container: {fileID: 880221077}
-  _player: {fileID: 1604040540}
-  _delay: 7
+  _delay: 10
 --- !u!4 &880221077
 Transform:
   m_ObjectHideFlags: 0
@@ -4146,7 +4147,7 @@ GameObject:
   - component: {fileID: 1433572040}
   - component: {fileID: 1433572039}
   m_Layer: 5
-  m_Name: Background
+  m_Name: MoneyBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5734,10 +5735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a316eee47515548a2bbf721565155c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _killZone: {fileID: 1384546668}
   _text: {fileID: 2012271643}
   _startMoney: 255
   _healthPoint: 5
-  _killZone: {fileID: 1384546668}
 --- !u!4 &1604040541
 Transform:
   m_ObjectHideFlags: 0
@@ -6670,7 +6671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backgroundMusic: {fileID: 1785038824}
-  _spavner: {fileID: 880221076}
+  _spawner: {fileID: 880221076}
   _buildController: {fileID: 867937607}
 --- !u!1 &1789232339
 GameObject:
@@ -7168,7 +7169,7 @@ GameObject:
   - component: {fileID: 2012271644}
   - component: {fileID: 2012271643}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Money Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

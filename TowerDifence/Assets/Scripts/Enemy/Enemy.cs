@@ -5,7 +5,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(AudioSource))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int _healthPoint, _revard;
+    [SerializeField] private int _healthPoint;
+    [SerializeField] private int _revard;
     [SerializeField] private float _baseMoveSpeed;
     [SerializeField] private ParticleSystem _hitEffect;
     [SerializeField] private GameObject _helthBar;

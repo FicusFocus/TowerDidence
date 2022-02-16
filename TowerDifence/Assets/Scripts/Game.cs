@@ -15,36 +15,51 @@ public class Game : MonoBehaviour
     [SerializeField] private AudioClip _gameTrack;
     [SerializeField] private Player _player;
     [SerializeField] private EnemySpawner _spawner;
-    [SerializeField] private WinScreen _winScreen;
-    [SerializeField] private LoseScreen _loseScreen;
+    [SerializeField] private EndGameScreen _winScreen, _loseScreen;
 
     private AudioSource _audioSource;
     private bool _paused;
+    private bool _wavesAreOver;
+    private bool _enemyesAreOver;
 
     private void OnEnable()
     {
-        _spawner.AllWavesFinnished += OnAllWawesFinnished;
+        _pauseButton.onClick.AddListener(OnPauseButtonPressed);
         _loseScreen.MenuButtonClicked += OnMenuButtonClick;
+
         _loseScreen.RestartButtonClicked += OnRestartButtonClick;
+
         _winScreen.MenuButtonClicked += OnMenuButtonClick;
         _winScreen.RestartButtonClicked += OnRestartButtonClick;
+
         _menu.AnyPanelOpened += OnMenuOpened;
         _menu.MenuClosed += OnMenuClosed;
-        _pauseButton.onClick.AddListener(OnPauseButtonPressed);
+
         _player.AllEnemyesPassed += OnAllEnemyesPassed;
+        _player.AllEnemyesKilled += OnAllEnemyKilled;
+
+        _spawner.AllWavesFinnished += OnAllWawesFinnished;
+        _spawner.EnemySpawned += OnEnemySpawned;
     }
 
     private void OnDisable()
     {
-        _spawner.AllWavesFinnished -= OnAllWawesFinnished;
+        _pauseButton.onClick.RemoveListener(OnPauseButtonPressed);
+
         _loseScreen.MenuButtonClicked -= OnMenuButtonClick;
         _loseScreen.RestartButtonClicked -= OnRestartButtonClick;
+
         _winScreen.MenuButtonClicked -= OnMenuButtonClick;
         _winScreen.RestartButtonClicked -= OnRestartButtonClick;
+
         _menu.AnyPanelOpened -= OnMenuOpened;
         _menu.MenuClosed -= OnMenuClosed;
-        _pauseButton.onClick.RemoveListener(OnPauseButtonPressed);
+
         _player.AllEnemyesPassed -= OnAllEnemyesPassed;
+        _player.AllEnemyesKilled -= OnAllEnemyKilled;
+
+        _spawner.AllWavesFinnished -= OnAllWawesFinnished;
+        _spawner.EnemySpawned -= OnEnemySpawned;
     }
 
     private void Awake()
@@ -54,10 +69,11 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        StopGame();
+
         _audioSource.clip = _gameTrack;
         _audioSource.Play();
         _pauseButton.image.sprite = _pauseButtonSprite;
-        StopGame();
         _pauseText.gameObject.SetActive(true);
     }
 
@@ -79,26 +95,6 @@ public class Game : MonoBehaviour
     {
         StopGame();
         _loseScreen.gameObject.SetActive(true);
-    }
-
-    private void OnAllWawesFinnished()
-    {
-        StopGame();
-        _winScreen.gameObject.SetActive(true);
-    }
-
-    private void StopGame()
-    {
-        Time.timeScale = 0;
-        _pauseButton.image.sprite = _playButtonSprite;
-        _paused = true;
-    }
-
-    private void StartGame()
-    {
-        Time.timeScale = 1;
-        _pauseButton.image.sprite = _pauseButtonSprite;
-        _paused = false;
     }
 
     private void OnMenuOpened()
@@ -123,5 +119,38 @@ public class Game : MonoBehaviour
         _winScreen.gameObject.SetActive(false);
         _loseScreen.gameObject.SetActive(false);
         StartGame();
+    }
+
+    private void OnEnemySpawned(Enemy enemy)
+    {
+        _player.NewEnemyFound(enemy);
+    }
+
+    private void OnAllWawesFinnished()
+    {
+        _wavesAreOver = true;
+    }
+
+    private void OnAllEnemyKilled()
+    {
+        if (_wavesAreOver)
+        {
+            StopGame();
+            _winScreen.gameObject.SetActive(true);
+        }
+    }
+
+    private void StopGame()
+    {
+        Time.timeScale = 0;
+        _pauseButton.image.sprite = _playButtonSprite;
+        _paused = true;
+    }
+
+    private void StartGame()
+    {
+        Time.timeScale = 1;
+        _pauseButton.image.sprite = _pauseButtonSprite;
+        _paused = false;
     }
 }

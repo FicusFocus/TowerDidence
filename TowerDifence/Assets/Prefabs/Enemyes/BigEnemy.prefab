@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoint: 120
   _revard: 40
-  _baseMoveSpeed: 2
+  _baseMoveSpeed: 1
   _hitEffect: {fileID: 2129103126573768180}
   _helthBar: {fileID: 7427371458152560524}
   _damageClip: {fileID: 8300000, guid: 94424ca61636d234a929d481db75b707, type: 3}
